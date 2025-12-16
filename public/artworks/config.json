@@ -1,0 +1,114 @@
+{
+  "en": [
+    {
+      "id": "1",
+      "title": "《Assassin's Creed:Hypothermia》",
+      "description": "A fan made game about Assassin's Creed series.It is highly popular in social media and has been reported by Gamersky and STN.",
+      "imageUrl": "/artworks/images/work-01.jpg",
+      "detailUrl": "https://www.gamersky.com/news/202206/1493870.shtml",
+      "category": "Game",
+      "year": "2022"
+    },
+    {
+      "id": "2",
+      "title": "《Eyes》",
+      "description": "An interactive artwork built in Unity that examines the experience of women being gazed upon.",
+      "imageUrl": "/artworks/images/work-02.jpg",
+      "detailUrl": "https://www.xiaohongshu.com/explore/68b28264000000001d035930?xsec_token=AB4lxprefY6KRzQrhBr8Kz2G7k2AZeJ70oK16RlvJuhdA=&xsec_source=pc_user",
+      "category": "Interactive Art",
+      "year": "2025"
+    },
+    {
+      "id": "3",
+      "title": "《Sweet Yume》",
+      "description": "A meta horror game delving into the haunting lore of the K-Pop girl group ILLIT.",
+      "imageUrl": "/artworks/images/work-03.jpg",
+      "detailUrl": "https://www.xiaohongshu.com/explore/692a6c46000000001b024e41?xsec_token=AB07ophLiHQQV6kCBUKGQlF6RgVHBNxe0-eawAfJtfses=&xsec_source=pc_user",
+      "category": "Game",
+      "year": "2025"
+    },
+    {
+      "id": "4",
+      "title": "《Mugen·Dilate·Origin》",
+      "description": "An experimental video artwork addressing the subject of female reproduction/childbirth.",
+      "imageUrl": "/artworks/images/work-04.png",
+      "detailUrl": "https://www.bilibili.com/video/BV1pF411R7fk/",
+      "category": "Experimental Video",
+      "year": "2023"
+    },
+    {
+      "id": "5",
+      "title": "《Study With WayV》",
+      "description": "A focus-enhancing study companion website themed around the K-Pop group WayV.",
+      "imageUrl": "/artworks/images/work-05.jpg",
+      "detailUrl": "https://www.xiaohongshu.com/explore/692804e800000000190273da?xsec_token=ABaVqzPZiJzzfBzL_ni3Ki5OoWkaj-czCDB7H37Q2Q_jw=&xsec_source=pc_user",
+      "category": "Website",
+      "year": "2025"
+    },
+    {
+      "id": "6",
+      "title": "《aespa:DirtyThing》",
+      "description": "A FPS game about K-POP group aespa.",
+      "imageUrl": "/artworks/images/work-06.jpg",
+      "detailUrl": "https://www.xiaohongshu.com/explore/6860d26f0000000012032ea7?xsec_token=ABbqwqrdalzMOGAXO52S4HasJd-0THaEkIfvOOUYbir_s=&xsec_source=pc_user",
+      "category": "Game",
+      "year": "2025"
+    }
+  ],
+  "zh": [
+    {
+      "id": "1",
+      "title": "《刺客信条：失温》",
+      "description": "一个刺客信条系列的同人，在国内社交媒体热度很高，被游民星空和STN报道过。",
+      "imageUrl": "/artworks/images/work-01.jpg",
+      "detailUrl": "https://www.gamersky.com/news/202206/1493870.shtml",
+      "category": "游戏",
+      "year": "2022"
+    },
+    {
+      "id": "2",
+      "title": "《眼》",
+      "description": "一个基于Unity开发的关于女性被凝视的作品（批判MaskPark）",
+      "imageUrl": "/artworks/images/work-02.jpg",
+      "detailUrl": "#",
+      "category": "交互艺术",
+      "year": "2025"
+    },
+    {
+      "id": "3",
+      "title": "《甜梦》",
+      "description": "一个关于KPOP女团illit的恐怖游戏，具有非常丰富的meta元素。",
+      "imageUrl": "/artworks/images/work-03.jpg",
+      "detailUrl": "https://www.xiaohongshu.com/explore/692a6c46000000001b024e41?xsec_token=AB07ophLiHQQV6kCBUKGQlF6RgVHBNxe0-eawAfJtfses=&xsec_source=pc_user",
+      "category": "游戏",
+      "year": "2025"
+    },
+    {
+      "id": "4",
+      "title": "《無限·擴張·原點》",
+      "description": "一个讲述关于女性生育的实验影像作品。",
+      "imageUrl": "/artworks/images/work-04.png",
+      "detailUrl": "https://www.bilibili.com/video/BV1pF411R7fk/",
+      "category": "实验影像",
+      "year": "2023"
+    },
+    {
+      "id": "5",
+      "title": "《与威神V一起学习》",
+      "description": "一个关于KPOP团体威神V的专注学习陪伴网站。",
+      "imageUrl": "/artworks/images/work-05.jpg",
+      "detailUrl": "https://www.xiaohongshu.com/explore/692804e800000000190273da?xsec_token=ABaVqzPZiJzzfBzL_ni3Ki5OoWkaj-czCDB7H37Q2Q_jw=&xsec_source=pc_user",
+      "category": "网站",
+      "year": "2025"
+    },
+    {
+      "id": "6",
+      "title": "《aespa:秽物》",
+      "description": "一个关于KPOP女团aespa的FPS游戏。",
+      "imageUrl": "/artworks/images/work-06.jpg",
+      "detailUrl": "https://www.xiaohongshu.com/explore/6860d26f0000000012032ea7?xsec_token=ABbqwqrdalzMOGAXO52S4HasJd-0THaEkIfvOOUYbir_s=&xsec_source=pc_user",
+      "category": "游戏",
+      "year": "2025"
+    }
+  ]
+}
