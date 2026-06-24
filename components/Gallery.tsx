@@ -17,13 +17,10 @@ const Gallery: React.FC<Props> = ({ lang }) => {
   const [loading, setLoading] = useState<boolean>(true);
   const t = getTranslations(lang);
 
-  // 加载作品数据
   useEffect(() => {
-    // 每次语言变化时，先重置为空，再重新加载
     setArtworks([]);
     const loadArtworks = async () => {
       setLoading(true);
-      // 增加小延迟以确保状态刷新
       await new Promise(r => setTimeout(r, 50));
       const data = await fetchArtworks(lang);
       setArtworks(data);
@@ -34,24 +31,74 @@ const Gallery: React.FC<Props> = ({ lang }) => {
   }, [lang]);
 
   return (
-    <section id={SectionId.WORKS} className="py-24 relative z-10">
-      <div className="container mx-auto px-6">
-        <div className="mb-16 border-b border-white/20 pb-4 flex justify-between items-end">
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tighter uppercase">{t.selectedWorks}</h2>
-          <span className="hidden md:block font-mono text-xs text-gray-400">{t.indexLabel}</span>
+    <section id={SectionId.WORKS} className="py-12 md:py-16 relative z-10">
+      <div className="max-w-6xl mx-auto px-4">
+        {/* Section header — XP title bar */}
+        <div className="xp-titlebar mb-6 flex justify-between items-center rounded-sm">
+          <div className="flex items-center gap-2">
+            <span className="w-3 h-3 bg-y2k-highlight rounded-sm"></span>
+            <h2 className="font-ui text-sm font-bold text-y2k-white tracking-wide">
+              {t.selectedWorks}
+            </h2>
+          </div>
+          <span className="font-display text-xs text-y2k-white/70">
+            {t.indexLabel}
+          </span>
         </div>
 
         {loading ? (
-          <div className="text-center py-16 text-gray-400">Loading works...</div>
+          <div className="win95-panel p-8 text-center rounded-sm">
+            <p className="font-display text-xl text-y2k-text-dark">Loading...</p>
+          </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {artworks.map((art, index) => {
               const hasLink = !!art.detailUrl;
+              const cardContent = (
+                <>
+                  {/* Image Container — sunken panel */}
+                  <div className="relative overflow-hidden bg-y2k-bg-dark aspect-video" style={{ border: '2px inset #808080' }}>
+                    <img
+                      src={art.imageUrl}
+                      alt={art.title}
+                      className="w-full h-full object-cover transition-all duration-300 filter contrast-100 group-hover:contrast-110 group-hover:brightness-105"
+                    />
+
+                    {/* Hover overlay */}
+                    <div className="absolute inset-0 bg-y2k-accent/40 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
+                      {hasLink && (
+                        <div className="win95-btn bg-y2k-white p-2 rounded-sm">
+                          <ArrowUpRight className="w-5 h-5 text-y2k-text-dark" />
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Year Badge */}
+                    <div className="absolute top-2 right-2 bg-y2k-black text-y2k-highlight px-2 py-0.5 rounded-sm">
+                      <span className="font-display text-sm">{art.year}</span>
+                    </div>
+                  </div>
+
+                  {/* Text Info */}
+                  <div className="mt-2 p-2">
+                    <h3 className="font-display text-sm font-bold text-y2k-heading uppercase tracking-wide truncate">
+                      {art.title}
+                    </h3>
+                    <p className="font-display text-[10px] text-y2k-accent-light uppercase tracking-wider mt-0.5">
+                      {art.category}
+                    </p>
+                    <p className="font-body text-xs text-y2k-text leading-relaxed line-clamp-2 mt-1">
+                      {art.description}
+                    </p>
+                  </div>
+                </>
+              );
+
               const commonProps = {
-                initial: { opacity: 0, y: 50 },
+                initial: { opacity: 0, y: 20 },
                 whileInView: { opacity: 1, y: 0 },
                 viewport: { once: true },
-                transition: { duration: 0.6, delay: index * 0.1 },
+                transition: { duration: 0.4, delay: index * 0.06 },
                 className: `group relative ${hasLink ? 'cursor-pointer' : 'cursor-default'}`,
                 onMouseEnter: () => setHoveredId(art.id),
                 onMouseLeave: () => setHoveredId(null)
@@ -66,68 +113,11 @@ const Gallery: React.FC<Props> = ({ lang }) => {
                   rel="noopener noreferrer"
                   aria-label={art.title}
                 >
-                {/* Stereo/3D border effect wrapper */}
-                <div className="relative overflow-hidden border border-white/10 bg-zinc-900 aspect-video transition-transform duration-500 ease-out group-hover:-translate-y-2">
-                  
-                  {/* Image */}
-                  <img 
-                    src={art.imageUrl} 
-                    alt={art.title} 
-                    className="w-full h-full object-cover transition-all duration-700 filter grayscale group-hover:grayscale-0 group-hover:scale-110"
-                  />
-
-                  {/* Overlay on Hover */}
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
-                     <div className="border border-white p-4 rounded-full transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100">
-                       <ArrowUpRight className="w-8 h-8 text-white" />
-                     </div>
-                  </div>
-
-                  {/* Year Badge */}
-                  <div className="absolute top-4 right-4 bg-black/80 backdrop-blur-md px-2 py-1 border border-white/20 text-xs font-mono">
-                    {art.year}
-                  </div>
-                </div>
-
-                {/* Text Info */}
-                <div className="mt-4 border-l-2 border-transparent group-hover:border-white pl-0 group-hover:pl-3 transition-all duration-300 space-y-2">
-                  <div>
-                    <h3 className="text-xl font-bold uppercase tracking-tight">{art.title}</h3>
-                    <p className="text-xs text-gray-400 font-mono mt-1 uppercase">{art.category}</p>
-                  </div>
-                  <p className="text-sm text-gray-300 leading-relaxed line-clamp-3">
-                    {art.description}
-                  </p>
-                </div>
-              </motion.a>
+                  {cardContent}
+                </motion.a>
               ) : (
                 <motion.div key={art.id} {...commonProps}>
-                 {/* Stereo/3D border effect wrapper */}
-                 <div className="relative overflow-hidden border border-white/10 bg-zinc-900 aspect-video transition-transform duration-500 ease-out group-hover:-translate-y-2">
-                  
-                  {/* Image */}
-                  <img 
-                     src={art.imageUrl} 
-                     alt={art.title} 
-                     className="w-full h-full object-cover transition-all duration-700 filter grayscale group-hover:grayscale-0 group-hover:scale-110"
-                   />
-
-                   {/* Year Badge */}
-                   <div className="absolute top-4 right-4 bg-black/80 backdrop-blur-md px-2 py-1 border border-white/20 text-xs font-mono">
-                     {art.year}
-                   </div>
-                 </div>
-
-                 {/* Text Info */}
-                 <div className="mt-4 border-l-2 border-transparent group-hover:border-white pl-0 group-hover:pl-3 transition-all duration-300 space-y-2">
-                   <div>
-                     <h3 className="text-xl font-bold uppercase tracking-tight">{art.title}</h3>
-                     <p className="text-xs text-gray-400 font-mono mt-1 uppercase">{art.category}</p>
-                   </div>
-                   <p className="text-sm text-gray-300 leading-relaxed line-clamp-3">
-                     {art.description}
-                   </p>
-                 </div>
+                  {cardContent}
                 </motion.div>
               );
             })}

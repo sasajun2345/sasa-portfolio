@@ -8,25 +8,32 @@ const en = {
   bridgingParagraph:
     'Telling social issues and the stories I want to tell through digital art.',
   scrollLabel: 'Scroll',
-  aboutTitle: 'Hello There :)',
+  aboutTitle: 'About',
   aboutP1:
-    "Hi, I'm SaSa, a Unity Developer. I am passionate about game development and interactive art, creating these works in my spare time. I also love K-POP and ACG culture!",
+    "Hi, I'm SaSa — a Unity developer, digital artist, and storyteller. I create interactive experiences at the intersection of fan culture, feminism, and experimental art.",
   aboutP2:
-    'Most of my works are inspired by the fields I love (fan creations) and focus on social issues (such as feminism).',
-  techStackLabel: 'Tech Stack',
+    'Most of my works are inspired by the fields I love — fan creations rooted in K-POP and ACG culture — and focus on social issues such as feminism and identity.',
+  aboutTags: ['Fan Art', 'Digital Art', 'Feminism', 'Vibe Coding'],
+  aboutClosing: 'This is the best version of me.',
+  exhibitionsLabel: 'Exhibitions',
+  exhibitions: [
+    { time: '2024.01', location: 'Beijing', title: '"Love Without Worries" — Bloom Art & Yanyiquan Art Gallery' },
+    { time: '2024.07', location: 'Suzhou', title: '"Being" — Global Contemporary Young Artists Joint Exhibition (Phase 1)' },
+  ],
+  techStackLabel: 'Tools',
   disciplineLabel: 'Discipline',
-  disciplineItems: ['Game Develop', 'Tools Develop', 'Digtal Art Interactive'],
+  disciplineItems: ['Game Development', 'Interactive Art', 'Tools & Extensions'],
   selectedWorks: 'Selected Works',
   indexLabel: 'INDEX 01 — 06',
-  readyToPlay: 'Ready to Play?',
+  readyToPlay: "Let's Connect",
   contactParagraph:
-    "This is my portfolio showcase and job application website. Thank you for reading this far.",
-  connectWithSasa: 'Connect with SaSa',
+    "Thank you for reading this far. I'm always open to collaborations and conversations.",
+  connectWithSasa: 'Say Hello',
   artistBadge: 'ARTIST: SaSa',
   portraitAlt: 'SaSa Portrait',
   footerLine1: (year: number) => `© ${year} SaSa. All rights reserved.`,
-  footerLine2: 'Digital Art & Game Development Portfolio',
-  typewriterPhrases: ['DIGITAL ARTIST', 'GAME DEVELOPER'],
+  footerLine2: 'Digital Art & Storytelling',
+  typewriterPhrases: ['DIGITAL ARTIST', 'GAME DEVELOPER', 'STORYTELLER'],
   navItems: [
     { label: 'Works', href: `#${SectionId.WORKS}` },
     { label: 'About', href: `#${SectionId.ABOUT}` },
@@ -93,25 +100,32 @@ const zh = {
   bridgingParagraph:
     '用数字艺术的方式，讲述一个个社会议题以及我想讲的故事。',
   scrollLabel: '向下滚动',
-  aboutTitle: 'Hello There :)',
+  aboutTitle: '关于',
   aboutP1:
-    '嗨，我是SaSa，我是一名Unity开发工程师，同时我也对游戏开发、制作交互艺术感兴趣，我会在业余时间制作这些作品，我也很喜欢K-POP和二次元！',
+    '嗨，我是 SaSa —— 一名 Unity 开发者、数字艺术家和讲故事的人。我在同人文化、女性主义和实验艺术的交汇处创造交互体验。',
   aboutP2:
-    '我的大多数作品都是来源于我所热爱的领域（同人二创）以及关注于社会事件（比如女性主义）。',
-  techStackLabel: '技术栈',
+    '我的大多数作品都源于我热爱的领域 —— 根植于 K-POP 和二次元的同人创作 —— 并关注女性主义与身份认同等社会议题。',
+  aboutTags: ['同人', '数字艺术', '女性主义', 'Vibe Coding'],
+  aboutClosing: '这里是最好的我。',
+  exhibitionsLabel: '参展经历',
+  exhibitions: [
+    { time: '2024.01', location: '北京', title: '《爱无烦恼》 — Bloom Art & 衍艺圈艺术馆' },
+    { time: '2024.07', location: '苏州', title: '"在"全球当代青年艺术家联展（第一期）' },
+  ],
+  techStackLabel: '工具',
   disciplineLabel: '方向',
-  disciplineItems: ['游戏开发', '工具拓展开发', '数字交互艺术'],
+  disciplineItems: ['游戏开发', '交互艺术', '工具拓展开发'],
   selectedWorks: '精选作品',
   indexLabel: '索引 01 — 06',
-  readyToPlay: '准备好开始了吗？',
+  readyToPlay: '联系我',
   contactParagraph:
-    '这是本人的作品集展示以及求职网站，感谢你看到这里。',
-  connectWithSasa: '联系 SaSa',
+    '感谢你看到这里。我始终对合作和对话保持开放。',
+  connectWithSasa: '打个招呼',
   artistBadge: '艺术家：SaSa',
   portraitAlt: 'SaSa 肖像',
   footerLine1: (year: number) => `© ${year} SaSa。保留所有权利。`,
-  footerLine2: '数字艺术与游戏开发作品集',
-  typewriterPhrases: ['数字艺术家', '游戏开发者'],
+  footerLine2: '数字艺术与叙事',
+  typewriterPhrases: ['数字艺术家', '游戏开发者', '讲故事的人'],
   navItems: [
     { label: '作品', href: `#${SectionId.WORKS}` },
     { label: '关于', href: `#${SectionId.ABOUT}` },
@@ -178,4 +192,3 @@ export const getTranslations = (lang: Lang) => (lang === 'zh' ? zh : en)
 export const getNavItems = (lang: Lang): NavItem[] => getTranslations(lang).navItems
 export const getTypewriterPhrases = (lang: Lang): string[] => getTranslations(lang).typewriterPhrases
 export const getArtworks = (lang: Lang): Artwork[] => getTranslations(lang).artworks
-

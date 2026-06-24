@@ -26,7 +26,6 @@ const Typewriter: React.FC<TypewriterProps> = ({
     setReverse(false);
   }, [phrases]);
 
-  // Blinking cursor effect
   useEffect(() => {
     const timeout2 = setTimeout(() => {
       setBlink((prev) => !prev);
@@ -36,13 +35,11 @@ const Typewriter: React.FC<TypewriterProps> = ({
 
   useEffect(() => {
     if (index >= phrases.length) {
-        // Reset to first phrase to loop infinitely
-        setIndex(0);
-        return;
+      setIndex(0);
+      return;
     }
 
     if (subIndex === phrases[index].length + 1 && !reverse) {
-      // Finished typing the word, wait before deleting
       const timeout = setTimeout(() => {
         setReverse(true);
       }, pauseTime);
@@ -50,7 +47,6 @@ const Typewriter: React.FC<TypewriterProps> = ({
     }
 
     if (subIndex === 0 && reverse) {
-      // Finished deleting, move to next word
       setReverse(false);
       setIndex((prev) => (prev + 1) % phrases.length);
       return;
@@ -64,9 +60,9 @@ const Typewriter: React.FC<TypewriterProps> = ({
   }, [subIndex, index, reverse, phrases, typingSpeed, deletingSpeed, pauseTime]);
 
   return (
-    <span className={`${className} font-mono`}>
+    <span className={`${className} font-display`}>
       {phrases[index].substring(0, subIndex)}
-      <span className={`ml-1 inline-block w-2 h-[1em] bg-white align-middle ${blink ? 'opacity-100' : 'opacity-0'}`}>&nbsp;</span>
+      <span className={`ml-0.5 inline-block w-3 h-5 bg-y2k-accent-light align-middle ${blink ? 'opacity-100' : 'opacity-0'}`}>&nbsp;</span>
     </span>
   );
 };
