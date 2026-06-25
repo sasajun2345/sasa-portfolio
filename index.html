@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SaSa | Digital Art & Storytelling</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              y2k: {
+                bg: '#003366',
+                'bg-dark': '#002244',
+                card: '#d8dada',
+                surface: '#e8e8e8',
+                heading: '#ffffff',
+                text: '#c0d8f0',
+                'text-dark': '#111111',
+                muted: '#6699cc',
+                accent: '#0055ff',
+                'accent-light': '#4488ff',
+                'accent-dark': '#003399',
+                border: '#336699',
+                'border-dark': '#001a33',
+                white: '#ffffff',
+                black: '#000000',
+                highlight: '#ffff00',
+                'xp-blue': '#0054e3',
+                'xp-taskbar': '#0a1e3d',
+              }
+            },
+            fontFamily: {
+              display: ['Zpix', '"VT323"', '"MS Sans Serif"', 'Tahoma', 'sans-serif'],
+              body: ['Zpix', 'Tahoma', 'Arial', 'sans-serif'],
+              ui: ['Zpix', '"MS Sans Serif"', 'Tahoma', 'Arial', 'sans-serif'],
+              mono: ['Zpix', '"Courier New"', 'Consolas', 'monospace'],
+              pixel: ['"VT323"', '"Courier New"', 'monospace'],
+              'pixel-tiny': ['"Press Start 2P"', '"Courier New"', 'monospace'],
+            },
+            boxShadow: {
+              'win95': '2px 2px 0px 0px #000000',
+              'win95-inset': 'inset 2px 2px 0px 0px #ffffff, inset -2px -2px 0px 0px #808080',
+              'win95-outset': '2px 2px 0px 0px #ffffff, -1px -1px 0px 0px #808080',
+              'xp-glow': '0 0 20px rgba(0, 84, 227, 0.3)',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap');
+
+      /* Zpix pixel font — loaded from GitHub releases */
+
+      @font-face {
+        font-family: 'Zpix';
+        src: url('https://cdn.jsdelivr.net/gh/SolidZORO/zpix-pixel-font@master/dist/zpix.woff2') format('woff2'),
+             url('https://cdn.jsdelivr.net/gh/SolidZORO/zpix-pixel-font@master/dist/zpix.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      body {
+        background-color: #003366;
+        color: #c0d8f0;
+        font-family: Zpix, Tahoma, Arial, sans-serif;
+        overflow-x: hidden;
+      }
+
+      ::selection {
+        background-color: #0055ff;
+        color: #ffffff;
+      }
+
+      /* WinXP-style scrollbar */
+
+      ::-webkit-scrollbar {
+        width: 16px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #002244;
+        border-left: 1px solid #001a33;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(to bottom, #d8dada, #b0b0b0);
+        border: 1px solid #808080;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(to bottom, #e0e0e0, #c0c0c0);
+      }
+
+      .cursor-blink {
+        animation: blink 1s step-end infinite;
+      }
+
+      @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+      }
+
+      /* Win95 button style */
+
+      .win95-btn {
+        background: linear-gradient(to bottom, #e8e8e8, #c8c8c8);
+        border: 2px outset #ffffff;
+        box-shadow: 1px 1px 0px 0px #000000;
+        cursor: pointer;
+      }
+
+      .win95-btn:active {
+        border-style: inset;
+        box-shadow: none;
+        background: linear-gradient(to bottom, #c0c0c0, #d8d8d8);
+      }
+
+      /* Win95 panel / window */
+
+      .win95-panel {
+        background: linear-gradient(to bottom, #e0e0e0, #c8c8c8);
+        border: 2px outset #ffffff;
+        box-shadow: 1px 1px 0px 0px #000000;
+      }
+
+      /* XP-style title bar */
+
+      .xp-titlebar {
+        background: linear-gradient(to bottom, #0058e6, #003fa0, #0058e6);
+        border: 2px outset #4080ff;
+        padding: 4px 8px;
+      }
+
+      /* Pixel font fallback for decorative elements */
+
+      .pixel-font {
+        font-family: 'VT323', 'Courier New', monospace;
+      }
+
+      .pixel-font-tiny {
+        font-family: 'Press Start 2P', 'Courier New', monospace;
+      }
+
+      /* Y2K blue desktop background — layered gradients + subtle grid */
+
+      .xp-bg {
+        background-color: #003366;
+        background-image:
+          /* Soft radial light sources */
+          radial-gradient(ellipse at 25% 40%, rgba(0, 80, 180, 0.25) 0%, transparent 55%),
+          radial-gradient(ellipse at 75% 25%, rgba(0, 150, 255, 0.15) 0%, transparent 45%),
+          radial-gradient(ellipse at 50% 85%, rgba(0, 40, 120, 0.2) 0%, transparent 50%),
+          /* Subtle pixel grid overlay */
+          linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+        background-size: 100% 100%, 100% 100%, 100% 100%, 24px 24px, 24px 24px;
+      }
+
+      /* CRT scanline overlay (very subtle) */
+
+      .scanlines::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 3px,
+          rgba(0, 0, 0, 0.015) 3px,
+          rgba(0, 0, 0, 0.015) 6px
+        );
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      /* Blinking text for retro feel */
+
+      @keyframes blink-text {
+        0%, 49% { opacity: 1; }
+        50%, 100% { opacity: 0; }
+      }
+
+      .blink-text {
+        animation: blink-text 1s step-end infinite;
+      }
+    </style>
+
+  <script type="importmap">
+{
+  "imports": {
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.25",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "@react-three/drei": "https://aistudiocdn.com/@react-three/drei@^10.7.7",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "three": "https://aistudiocdn.com/three@^0.181.2",
+    "@react-three/fiber": "https://aistudiocdn.com/@react-three/fiber@^9.4.2"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/sasa-portfolio/assets/index-D-dcdKzy.js"></script>
+</head>
+  <body>
+    <div id="root"></div>
+</body>
+</html>
